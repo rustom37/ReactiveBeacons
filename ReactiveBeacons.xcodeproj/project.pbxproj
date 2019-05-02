@@ -14,6 +14,7 @@
 		AA30CF022271F2CD00B36200 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA30CF012271F2CD00B36200 /* Assets.xcassets */; };
 		AA30CF052271F2CD00B36200 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA30CF032271F2CD00B36200 /* LaunchScreen.storyboard */; };
 		AA30CF0D2271F2EC00B36200 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30CF0C2271F2EC00B36200 /* BeaconManager.swift */; };
+		AAA1D931227B21ED00480C49 /* Beacon.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAA1D930227B21ED00480C49 /* Beacon.swift */; };
 		B3B97EDBB4CA43C82B20951E /* Pods_ReactiveBeacons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40748A2CDF40AE639720749A /* Pods_ReactiveBeacons.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		AA30CF042271F2CD00B36200 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA30CF062271F2CD00B36200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AA30CF0C2271F2EC00B36200 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		AAA1D930227B21ED00480C49 /* Beacon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Beacon.swift; sourceTree = "<group>"; };
 		BAD8552DB56B85624BD0B0EB /* Pods-ReactiveBeacons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveBeacons.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveBeacons/Pods-ReactiveBeacons.release.xcconfig"; sourceTree = "<group>"; };
 		CF0EACA1870FFEDC8AD45C64 /* Pods-ReactiveBeacons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveBeacons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveBeacons/Pods-ReactiveBeacons.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +87,7 @@
 				AA30CEF72271F2CC00B36200 /* AppDelegate.swift */,
 				AA30CEF92271F2CC00B36200 /* ViewController.swift */,
 				AA30CF0C2271F2EC00B36200 /* BeaconManager.swift */,
+				AAA1D930227B21ED00480C49 /* Beacon.swift */,
 				AA30CEFB2271F2CC00B36200 /* Main.storyboard */,
 				AA30CF012271F2CD00B36200 /* Assets.xcassets */,
 				AA30CF032271F2CD00B36200 /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 			files = (
 				AA30CF002271F2CC00B36200 /* ReactiveBeacons.xcdatamodeld in Sources */,
 				AA30CF0D2271F2EC00B36200 /* BeaconManager.swift in Sources */,
+				AAA1D931227B21ED00480C49 /* Beacon.swift in Sources */,
 				AA30CEFA2271F2CC00B36200 /* ViewController.swift in Sources */,
 				AA30CEF82271F2CC00B36200 /* AppDelegate.swift in Sources */,
 			);

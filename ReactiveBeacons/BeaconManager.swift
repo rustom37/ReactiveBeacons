@@ -14,19 +14,12 @@ import Result
 
 class BeaconManager: NSObject, CLLocationManagerDelegate {
    
-    let majorValue : CLBeaconMajorValue
-    let minorValue : CLBeaconMinorValue
-    let uuid : UUID
-    let name : String
+    var beaconArray = [Beacon]()
     let locationManager = CLLocationManager()
+    var property: MutableProperty<[Beacon]> = MutableProperty([])
     
-    var property: MutableProperty<[CLBeacon]> = MutableProperty([])
-    
-    init(name: String, uuid: UUID, majorValue: Int, minorValue: Int) {
-        self.name = name
-        self.uuid = uuid
-        self.majorValue = CLBeaconMajorValue(majorValue)
-        self.minorValue = CLBeaconMinorValue(minorValue)
+    init(beaconArray: [Beacon]) {
+        self.beaconArray = beaconArray
     }
 
     //MARK: - CoreLocation
@@ -50,29 +43,28 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         }
     }
     
-    private func asBeaconRegion() -> CLBeaconRegion {
-        let region = CLBeaconRegion(proximityUUID: uuid, major: majorValue, minor: minorValue, identifier: name)
-        region.notifyOnEntry = true
-        region.notifyOnExit = true
-        return region
-    }
-    
     func startMonitoring() {
         print("Start Monitoring")
-        let beaconRegion = self.asBeaconRegion()
-        beaconRegion.notifyEntryStateOnDisplay = true
-        locationManager.startMonitoring(for: beaconRegion)
-        locationManager.startUpdatingLocation()
-        locationManager.startRangingBeacons(in: beaconRegion)
+        for beacon in beaconArray {
+            let beaconRegion = beacon.asBeaconRegion()
+            beaconRegion.notifyEntryStateOnDisplay = true
+            locationManager.startMonitoring(for: beaconRegion)
+            locationManager.startUpdatingLocation()
+            locationManager.startRangingBeacons(in: beaconRegion)
+        }
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
         if beacons.count > 0 {
-            for beacon in beacons {
-                if(!property.value.contains(beacon)) {
-                    property.value.append(beacon)
+            for b in beaconArray {
+                for beacon in beacons {
+                    let newBeacon = Beacon(name: b.name, uuid: beacon.proximityUUID, majorValue: beacon.major as! Int, minorValue: beacon.minor as! Int)
+                    if(!property.value.contains(newBeacon)) {
+                        property.value.append(newBeacon)
+                    }
                 }
             }
+            
         }
     }
 }
