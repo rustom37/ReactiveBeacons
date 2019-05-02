@@ -23,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        requestAuthorization()
+//        requestAuthorization()
         
         let observer = Signal<[CLBeacon], NoError>.Observer( value: { value in
             var beaconUUIDs = [UUID]()
@@ -35,8 +35,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         })
 
         let sp = SignalProducer<[CLBeacon], NoError> { observer, lifetime in
+            
+//            self.requestAuthorization()
 
-            self.startMonitoring()
+//            self.startMonitoring()
+            DispatchQueue.main.async(execute: {
+                self.requestAuthorization()
+                self.startMonitoring()
+//                observer.send(value: self.beaconsArray)
+//                observer.sendCompleted()
+            })
             observer.send(value: self.beaconsArray)
             observer.sendCompleted()
         }
