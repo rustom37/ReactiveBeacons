@@ -16,6 +16,8 @@ class ViewController: UIViewController {
     
     var beaconManager = BeaconManager(beaconArray: [])
 
+    @IBOutlet weak var label: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -26,6 +28,16 @@ class ViewController: UIViewController {
         beaconManager.startMonitoring()
         
         let property = beaconManager.property
+        
+        let isAuthorized = beaconManager.isAuthorized
+        
+        isAuthorized.producer.startWithValues { (value) in
+            if value == true {
+                self.label.text = "Authorized"
+            } else {
+                self.label.text = "Not Authorized"
+            }
+        }
         
         property.producer.startWithValues { (value) in
             for beacon in value {

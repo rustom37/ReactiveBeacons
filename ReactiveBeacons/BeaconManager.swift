@@ -18,6 +18,9 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     let locationManager = CLLocationManager()
     var property: MutableProperty<[Beacon]> = MutableProperty([])
     
+    var isAuthorized : MutableProperty<Bool> = MutableProperty(false)
+    
+    
     init(beaconArray: [Beacon]) {
         self.beaconArray = beaconArray
     }
@@ -35,10 +38,13 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways:
+            isAuthorized.value = true
+
             print("Authorization always granted.")
         case .authorizedWhenInUse:
             print("Authorization granted when in use.")
         default:
+            isAuthorized.value = false
             print("Authorization not granted.")
         }
     }
@@ -64,7 +70,23 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
                     }
                 }
             }
-            
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
+        print("Did enter.")
+        UserDefaults.standard.set("0", forKey: "steve")
+        var steve = 0
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
+            steve += 1
+            UserDefaults.standard.set(String(steve), forKey: "steve")
+            UserDefaults.standard.synchronize()
+            print(steve)
+        }
+        
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
+        print("Did exit.")
     }
 }
