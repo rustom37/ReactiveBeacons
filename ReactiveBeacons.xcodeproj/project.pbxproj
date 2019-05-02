@@ -13,9 +13,12 @@
 		AA30CF002271F2CC00B36200 /* ReactiveBeacons.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AA30CEFE2271F2CC00B36200 /* ReactiveBeacons.xcdatamodeld */; };
 		AA30CF022271F2CD00B36200 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AA30CF012271F2CD00B36200 /* Assets.xcassets */; };
 		AA30CF052271F2CD00B36200 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA30CF032271F2CD00B36200 /* LaunchScreen.storyboard */; };
+		AA30CF0D2271F2EC00B36200 /* BeaconManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA30CF0C2271F2EC00B36200 /* BeaconManager.swift */; };
+		B3B97EDBB4CA43C82B20951E /* Pods_ReactiveBeacons.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 40748A2CDF40AE639720749A /* Pods_ReactiveBeacons.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		40748A2CDF40AE639720749A /* Pods_ReactiveBeacons.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ReactiveBeacons.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA30CEF42271F2CC00B36200 /* ReactiveBeacons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ReactiveBeacons.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AA30CEF72271F2CC00B36200 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AA30CEF92271F2CC00B36200 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +27,9 @@
 		AA30CF012271F2CD00B36200 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AA30CF042271F2CD00B36200 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AA30CF062271F2CD00B36200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AA30CF0C2271F2EC00B36200 /* BeaconManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconManager.swift; sourceTree = "<group>"; };
+		BAD8552DB56B85624BD0B0EB /* Pods-ReactiveBeacons.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveBeacons.release.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveBeacons/Pods-ReactiveBeacons.release.xcconfig"; sourceTree = "<group>"; };
+		CF0EACA1870FFEDC8AD45C64 /* Pods-ReactiveBeacons.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ReactiveBeacons.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ReactiveBeacons/Pods-ReactiveBeacons.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3B97EDBB4CA43C82B20951E /* Pods_ReactiveBeacons.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		991CA1B28F2DC812EF197FA1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CF0EACA1870FFEDC8AD45C64 /* Pods-ReactiveBeacons.debug.xcconfig */,
+				BAD8552DB56B85624BD0B0EB /* Pods-ReactiveBeacons.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9BD03622A0066AE1C8B6C724 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				40748A2CDF40AE639720749A /* Pods_ReactiveBeacons.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		AA30CEEB2271F2CC00B36200 = {
 			isa = PBXGroup;
 			children = (
 				AA30CEF62271F2CC00B36200 /* ReactiveBeacons */,
 				AA30CEF52271F2CC00B36200 /* Products */,
+				991CA1B28F2DC812EF197FA1 /* Pods */,
+				9BD03622A0066AE1C8B6C724 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +84,7 @@
 			children = (
 				AA30CEF72271F2CC00B36200 /* AppDelegate.swift */,
 				AA30CEF92271F2CC00B36200 /* ViewController.swift */,
+				AA30CF0C2271F2EC00B36200 /* BeaconManager.swift */,
 				AA30CEFB2271F2CC00B36200 /* Main.storyboard */,
 				AA30CF012271F2CD00B36200 /* Assets.xcassets */,
 				AA30CF032271F2CD00B36200 /* LaunchScreen.storyboard */,
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = AA30CF092271F2CD00B36200 /* Build configuration list for PBXNativeTarget "ReactiveBeacons" */;
 			buildPhases = (
+				3A590686755AB7FB6CB295A3 /* [CP] Check Pods Manifest.lock */,
 				AA30CEF02271F2CC00B36200 /* Sources */,
 				AA30CEF12271F2CC00B36200 /* Frameworks */,
 				AA30CEF22271F2CC00B36200 /* Resources */,
+				F401C00D20FCE31EB19463A8 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +162,64 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A590686755AB7FB6CB295A3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-ReactiveBeacons-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F401C00D20FCE31EB19463A8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveBeacons/Pods-ReactiveBeacons-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/ReactiveCocoa/ReactiveCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/ReactiveSwift/ReactiveSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ReactiveBeacons/Pods-ReactiveBeacons-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		AA30CEF02271F2CC00B36200 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				AA30CF002271F2CC00B36200 /* ReactiveBeacons.xcdatamodeld in Sources */,
+				AA30CF0D2271F2EC00B36200 /* BeaconManager.swift in Sources */,
 				AA30CEFA2271F2CC00B36200 /* ViewController.swift in Sources */,
 				AA30CEF82271F2CC00B36200 /* AppDelegate.swift in Sources */,
 			);
@@ -284,6 +365,7 @@
 		};
 		AA30CF0A2271F2CD00B36200 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0EACA1870FFEDC8AD45C64 /* Pods-ReactiveBeacons.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -302,6 +384,7 @@
 		};
 		AA30CF0B2271F2CD00B36200 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BAD8552DB56B85624BD0B0EB /* Pods-ReactiveBeacons.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
