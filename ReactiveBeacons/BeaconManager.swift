@@ -13,23 +13,20 @@ import ReactiveSwift
 import Result
 
 class BeaconManager: NSObject, CLLocationManagerDelegate {
-   
-    var beaconArray = [Beacon]()
+    private var beaconArray = [Beacon]()
     let locationManager = CLLocationManager()
-    var property: MutableProperty<[Beacon]> = MutableProperty([])
-    
+    var property = MutableProperty(Set<Beacon>())
+    var numberOfBeacons : MutableProperty<Int> = MutableProperty(0)
     var isAuthorized : MutableProperty<Bool> = MutableProperty(false)
     
-    
-    init(beaconArray: [Beacon]) {
-        self.beaconArray = beaconArray
+    //MARK: - BeaconManager Method
+    func addBeacon(beacon: Beacon) {
+        beaconArray.append(beacon)
     }
-
-    //MARK: - CoreLocation
     
+    //MARK: - CoreLocation
     func requestAuthorization() {
         locationManager.delegate = self
-        locationManager.allowsBackgroundLocationUpdates = true
         if CLLocationManager.authorizationStatus() != .authorizedAlways {
             locationManager.requestAlwaysAuthorization()
         }
@@ -39,19 +36,15 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways:
             isAuthorized.value = true
-
-            print("Authorization always granted.")
         case .authorizedWhenInUse:
-            print("Authorization granted when in use.")
+            isAuthorized.value = true
         default:
             isAuthorized.value = false
-            print("Authorization not granted.")
         }
     }
     
     func startMonitoring() {
-        print("Start Monitoring")
-        for beacon in beaconArray {
+        beaconArray.forEach { beacon in
             let beaconRegion = beacon.asBeaconRegion()
             beaconRegion.notifyEntryStateOnDisplay = true
             locationManager.startMonitoring(for: beaconRegion)
@@ -61,29 +54,15 @@ class BeaconManager: NSObject, CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didRangeBeacons beacons: [CLBeacon], in region: CLBeaconRegion) {
-        if beacons.count > 0 {
-            for b in beaconArray {
-                for beacon in beacons {
-                    let newBeacon = Beacon(name: b.name, uuid: beacon.proximityUUID, majorValue: beacon.major as! Int, minorValue: beacon.minor as! Int)
-                    if(!property.value.contains(newBeacon)) {
-                        property.value.append(newBeacon)
-                    }
-                }
-            }
+        self.property.value.removeAll()
+        beacons.forEach { beacon in
+            property.value.insert(Beacon(name: "", uuid: beacon.proximityUUID, majorValue: beacon.major.intValue, minorValue: beacon.minor.intValue))
         }
+        numberOfBeacons.value = property.value.count
     }
     
     func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
         print("Did enter.")
-        UserDefaults.standard.set("0", forKey: "steve")
-        var steve = 0
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in
-            steve += 1
-            UserDefaults.standard.set(String(steve), forKey: "steve")
-            UserDefaults.standard.synchronize()
-            print(steve)
-        }
-        
     }
     
     func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {

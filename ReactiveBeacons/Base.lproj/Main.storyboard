@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,14 +15,22 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ReactiveBeacons" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5gV-Uo-IHP">
-                                <rect key="frame" x="127" y="438" width="160" height="21"/>
+                                <rect key="frame" x="127" y="119" width="160" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="ej7-XH-caf"/>
-                                    <constraint firstAttribute="height" constant="21" id="wok-Ez-9A1"/>
+                                    <constraint firstAttribute="height" constant="20" id="Rpz-aT-wjn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fgI-le-U83">
+                                <rect key="frame" x="20" y="357.66666666666669" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="gZr-Q5-CaJ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -31,20 +39,23 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="5gV-Uo-IHP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="A8h-Fy-h7s"/>
-                            <constraint firstItem="5gV-Uo-IHP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="394" id="Anc-vL-MQ2"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5gV-Uo-IHP" secondAttribute="trailing" constant="127" id="OLw-QT-oPL"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="5gV-Uo-IHP" secondAttribute="bottom" constant="403" id="fb9-m4-x1d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5gV-Uo-IHP" secondAttribute="trailing" constant="127" id="011-gP-Dr5"/>
+                            <constraint firstItem="5gV-Uo-IHP" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="99" id="cQg-6V-Vl1"/>
+                            <constraint firstItem="fgI-le-U83" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fqq-h3-HQe"/>
+                            <constraint firstItem="5gV-Uo-IHP" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="127" id="jNw-vM-Pr5"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fgI-le-U83" secondAttribute="trailing" constant="20" id="l17-eG-rEg"/>
+                            <constraint firstItem="fgI-le-U83" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="tw7-d1-vBu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="beaconsInRange" destination="fgI-le-U83" id="amU-dc-D3n"/>
                         <outlet property="label" destination="5gV-Uo-IHP" id="bo3-U6-02H"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="80.357142857142847"/>
+            <point key="canvasLocation" x="137.68115942028987" y="79.891304347826093"/>
         </scene>
     </scenes>
 </document>
